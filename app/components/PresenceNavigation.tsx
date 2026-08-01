@@ -31,9 +31,10 @@ const rightItems = [
 export default function PresenceNavigation() {
   const [openPanel, setOpenPanel] = useState<OpenPanel>(null);
 
-  function closeEverything() {
-    setOpenPanel(null);
-  }
+function closeEverything() {
+  setOpenPanel(null);
+  window.dispatchEvent(new Event("close-presence-ui"));
+}
 
   return (
     <>
@@ -72,7 +73,7 @@ export default function PresenceNavigation() {
             setOpenPanel(null);
           }
         }}
-        className={`absolute inset-y-0 left-0 z-40 flex w-[82vw] max-w-[330px] flex-col justify-center bg-gradient-to-r from-black/75 via-black/45 to-transparent px-8 pr-20 backdrop-blur-md transition-transform duration-500 ease-out md:w-[320px] ${
+        className={`absolute inset-y-0 left-0 z-40 flex h-[100dvh] w-[88vw] max-w-[380px] flex-col justify-start overflow-y-auto bg-gradient-to-r from-black/75 via-black/45 to-transparent px-8 py-12 pr-20 backdrop-blur-md transition-transform duration-500 ease-out md:w-[380px] md:justify-center md:py-8 ${
           openPanel === "left"
             ? "translate-x-0"
             : "-translate-x-full"
@@ -127,7 +128,7 @@ export default function PresenceNavigation() {
             setOpenPanel(null);
           }
         }}
-        className={`absolute inset-y-0 right-0 z-40 flex w-[82vw] max-w-[330px] flex-col justify-center bg-gradient-to-l from-black/75 via-black/45 to-transparent px-8 pl-20 backdrop-blur-md transition-transform duration-500 ease-out md:w-[320px] ${
+        className={`absolute inset-y-0 right-0 z-40 flex h-[100dvh] w-[88vw] max-w-[380px] flex-col justify-start overflow-y-auto bg-gradient-to-l from-black/75 via-black/45 to-transparent px-8 py-12 pl-20 backdrop-blur-md transition-transform duration-500 ease-out md:w-[380px] md:justify-center md:py-8 ${
           openPanel === "right"
             ? "translate-x-0"
             : "translate-x-full"

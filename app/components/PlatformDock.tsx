@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 type Platform = {
   name: string;
@@ -69,6 +69,19 @@ const platforms: Platform[] = [
 export default function PlatformDock() {
   const [isOpen, setIsOpen] = useState(false);
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+
+  useEffect(() => {
+  function closeDock() {
+    setIsOpen(false);
+    setHoveredIndex(null);
+  }
+
+  window.addEventListener("close-presence-ui", closeDock);
+
+  return () => {
+    window.removeEventListener("close-presence-ui", closeDock);
+  };
+}, []);
 
   function getScale(index: number) {
     if (hoveredIndex === null) return 1;
