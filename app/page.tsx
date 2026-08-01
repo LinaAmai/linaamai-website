@@ -1,3 +1,5 @@
+import PresenceNavigation from "./components/PresenceNavigation";
+
 export default function Home() {
   return (
     <main className="relative h-screen w-screen overflow-hidden bg-black">
@@ -18,7 +20,9 @@ export default function Home() {
 
       <div className="pointer-events-none absolute inset-x-0 bottom-0 h-36 bg-gradient-to-t from-black/40 to-transparent" />
 
-      <p className="absolute bottom-7 left-8 text-[10px] font-medium uppercase tracking-[0.5em] text-white/45">
+      <PresenceNavigation />
+
+      <p className="pointer-events-none absolute bottom-7 left-8 z-20 text-[10px] font-medium uppercase tracking-[0.5em] text-white/45">
         Lina Amai
       </p>
     </main>

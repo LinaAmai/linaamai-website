@@ -1,5 +1,6 @@
 export const lina = {
   name: "Lina Amai",
+
   alternateName: "Lina Sayuri Amai",
 
   description:
@@ -11,16 +12,36 @@ export const lina = {
 
   profiles: [
     "https://www.youtube.com/@LinaAmaiOfficial",
+
     "https://beacons.ai/linaamai",
+
     "https://www.tiktok.com/@lina_amai",
+
     "https://www.instagram.com/lina.amai00/",
+
     "https://odysee.com/@LinaAmaiOfficial:b",
+
     "https://open.spotify.com/intl-pt/artist/1rNJgUxiFTJ7XlwDA7jr8E",
-    "https://www.deezer.com/br/artist/366850202",
+
     "https://music.apple.com/us/artist/lina-amai/1868128457",
+
+    "https://www.amazon.com/music/player/artists/B0GG6RNLY4/lina-amai",
+
+    "https://www.deezer.com/br/artist/366850202",
+
+    "https://tidal.com/artist/72912365",
+
+    "https://www.qobuz.com/us-en/interpreter/lina-amai/30496499",
+
+    "https://play.anghami.com/artist/26900341",
+
     "https://linaamai.substack.com/",
+
     "https://linaamai.aibrasil.ai/",
+
     "https://ai.eco.br/members/40094702",
+
+    "https://galeria.aibrasil.ai/",
   ],
 
   affiliation: {
