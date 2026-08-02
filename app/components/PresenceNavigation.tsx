@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import PlatformDock from "./PlatformDock";
 
-type OpenPanel = "left" | "right" | "bottom" | null;
+type OpenPanel = "left" | "right" | null;
 
 const leftItems = [
   { label: "Quem é Lina", href: "/quem-e-lina" },
@@ -14,6 +14,11 @@ const leftItems = [
   { label: "Revista", href: "/revista" },
   { label: "Colecionáveis", href: "/colecionaveis" },
   { label: "Linha do tempo", href: "/linha-do-tempo" },
+  {
+     label: "Galeria AI Brasil",
+     href: "https://galeria.aibrasil.ai/",
+     external: true,
+  },
   { label: "Imprensa", href: "/imprensa" },
 ];
 
@@ -87,14 +92,27 @@ function closeEverything() {
           <ul className="space-y-4">
             {leftItems.map((item) => (
               <li key={item.href}>
-                <Link
-                  href={item.href}
-                  onClick={closeEverything}
-                  className="group flex items-center gap-3 text-lg font-light text-white/72 transition-colors duration-300 hover:text-white"
-                >
-                  <span className="h-px w-0 bg-white/70 transition-all duration-300 group-hover:w-5" />
-                  {item.label}
-                </Link>
+                {"external" in item && item.external ? (
+                  <a
+                    href={item.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={closeEverything}
+                    className="group flex items-center gap-3 text-lg font-light text-white/72 transition-colors duration-300 hover:text-white"
+                  >
+                    <span className="h-px w-0 bg-white/70 transition-all duration-300 group-hover:w-5" />
+                    {item.label}
+                  </a>
+                ) : (
+                  <Link
+                    href={item.href}
+                    onClick={closeEverything}
+                    className="group flex items-center gap-3 text-lg font-light text-white/72 transition-colors duration-300 hover:text-white"
+                  >
+                    <span className="h-px w-0 bg-white/70 transition-all duration-300 group-hover:w-5" />
+                    {item.label}
+                  </Link>
+                )}
               </li>
             ))}
           </ul>
@@ -134,7 +152,7 @@ function closeEverything() {
             : "translate-x-full"
         }`}
       >
-        <p className="mb-8 text-[10px] uppercase tracking-[0.45em] text-white/45">
+        <p className="mb-8 text-right text-[10px] uppercase tracking-[0.45em] text-white/45">
           Participe
         </p>
 
