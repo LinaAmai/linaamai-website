@@ -2,7 +2,7 @@ import PresenceNavigation from "./components/PresenceNavigation";
 
 export default function Home() {
   return (
-    <main className="relative h-screen w-screen overflow-hidden bg-black">
+    <main className="relative h-[100dvh] w-full overflow-hidden bg-black">
       <video
         className="absolute inset-0 h-full w-full object-cover object-center"
         autoPlay

@@ -9,25 +9,26 @@ type OpenPanel = "left" | "right" | null;
 const leftItems = [
   { label: "Quem é Lina", href: "/quem-e-lina" },
   { label: "Músicas", href: "/musicas" },
+  { label: "Universos", href: "/universos" },
   { label: "Galeria", href: "/galeria" },
-  { label: "Vídeos", href: "/videos" },
   { label: "Revista", href: "/revista" },
   { label: "Colecionáveis", href: "/colecionaveis" },
   { label: "Linha do tempo", href: "/linha-do-tempo" },
-  {
+  { label: "Imprensa", href: "/imprensa" },
+    {
      label: "Galeria AI Brasil ↗",
      href: "https://galeria.aibrasil.ai/",
      external: true,
   },
-  { label: "Imprensa", href: "/imprensa" },
 ];
 
 const rightItems = [
   { label: "Comunidade", href: "/comunidade" },
   { label: "Fragmentos", href: "/fragmentos" },
   { label: "Agenda", href: "/agenda" },
-  { label: "Guardiões", href: "/guardioes" },
+  { label: "Conversar com Lina", href: "/conversar" },
   { label: "Fãs colaboradores", href: "/fas-colaboradores" },
+  { label: "Guardiões", href: "/guardioes" },
   {
     label: "Apoiar ↗",
     href: "https://livepix.gg/linaamai",
@@ -35,7 +36,6 @@ const rightItems = [
   },
   { label: "Parceiros", href: "/parceiros" },
   { label: "Loja", href: "/loja" },
-  { label: "Conversar com Lina", href: "/conversar" },
 ];
 
 export default function PresenceNavigation() {
