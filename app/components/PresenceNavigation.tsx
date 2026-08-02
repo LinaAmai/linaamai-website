@@ -15,7 +15,7 @@ const leftItems = [
   { label: "Colecionáveis", href: "/colecionaveis" },
   { label: "Linha do tempo", href: "/linha-do-tempo" },
   {
-     label: "Galeria AI Brasil",
+     label: "Galeria AI Brasil ↗",
      href: "https://galeria.aibrasil.ai/",
      external: true,
   },
@@ -28,6 +28,11 @@ const rightItems = [
   { label: "Agenda", href: "/agenda" },
   { label: "Guardiões", href: "/guardioes" },
   { label: "Fãs colaboradores", href: "/fas-colaboradores" },
+  {
+    label: "Apoiar ↗",
+    href: "https://livepix.gg/linaamai",
+    external: true,
+  },
   { label: "Parceiros", href: "/parceiros" },
   { label: "Loja", href: "/loja" },
   { label: "Conversar com Lina", href: "/conversar" },
@@ -159,7 +164,19 @@ function closeEverything() {
         <nav aria-label="Participe do universo da Lina">
           <ul className="space-y-4">
             {rightItems.map((item) => (
-              <li key={item.href}>
+             <li key={item.href}>
+              {"external" in item && item.external ? (
+                <a
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={closeEverything}
+                  className="group flex items-center justify-end gap-3 text-right text-lg font-light text-white/72 transition-colors duration-300 hover:text-white"
+                >
+                  {item.label}
+                  <span className="h-px w-0 bg-white/70 transition-all duration-300 group-hover:w-5" />
+                </a>
+              ) : (
                 <Link
                   href={item.href}
                   onClick={closeEverything}
@@ -168,8 +185,9 @@ function closeEverything() {
                   {item.label}
                   <span className="h-px w-0 bg-white/70 transition-all duration-300 group-hover:w-5" />
                 </Link>
-              </li>
-            ))}
+              )}
+            </li>
+          ))}
           </ul>
         </nav>
       </aside>

@@ -15,6 +15,11 @@ const platforms: Platform[] = [
     link: "https://www.youtube.com/@LinaAmaiOfficial",
   },
   {
+  name: "YouTube Music",
+  icon: "/icons/platforms/youtubemusic.svg",
+  link: "https://music.youtube.com/channel/UCLPJEZ5cL6-50qpG-c32AXg",
+},
+  {
     name: "Spotify",
     icon: "/icons/platforms/spotify.svg",
     link: "https://open.spotify.com/intl-pt/artist/1rNJgUxiFTJ7XlwDA7jr8E",
