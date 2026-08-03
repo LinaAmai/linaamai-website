@@ -1,8 +1,8 @@
 "use client";
 
-import Link from "next/link";
 import { useState } from "react";
 import PlatformDock from "./PlatformDock";
+import GrowingPlaceModal from "./GrowingPlaceModal";
 
 type OpenPanel = "left" | "right" | null;
 
@@ -40,10 +40,15 @@ const rightItems = [
 
 export default function PresenceNavigation() {
   const [openPanel, setOpenPanel] = useState<OpenPanel>(null);
+  const [growingPlace, setGrowingPlace] = useState<string | null>(null);
 
 function closeEverything() {
   setOpenPanel(null);
   window.dispatchEvent(new Event("close-presence-ui"));
+}
+function openGrowingPlace(placeName: string) {
+  closeEverything();
+  setGrowingPlace(placeName);
 }
 
   return (
@@ -109,14 +114,14 @@ function closeEverything() {
                     {item.label}
                   </a>
                 ) : (
-                  <Link
-                    href={item.href}
-                    onClick={closeEverything}
-                    className="group flex items-center gap-3 text-lg font-light text-white/72 transition-colors duration-300 hover:text-white"
+                  <button
+                    type="button"
+                    onClick={() => openGrowingPlace(item.label)}
+                    className="group flex w-full items-center gap-3 text-left text-lg font-light text-white/72 transition-colors duration-300 hover:text-white"
                   >
                     <span className="h-px w-0 bg-white/70 transition-all duration-300 group-hover:w-5" />
                     {item.label}
-                  </Link>
+                  </button>
                 )}
               </li>
             ))}
@@ -177,14 +182,14 @@ function closeEverything() {
                   <span className="h-px w-0 bg-white/70 transition-all duration-300 group-hover:w-5" />
                 </a>
               ) : (
-                <Link
-                  href={item.href}
-                  onClick={closeEverything}
-                  className="group flex items-center justify-end gap-3 text-right text-lg font-light text-white/72 transition-colors duration-300 hover:text-white"
+                <button
+                  type="button"
+                  onClick={() => openGrowingPlace(item.label)}
+                  className="group flex w-full items-center justify-end gap-3 text-right text-lg font-light text-white/72 transition-colors duration-300 hover:text-white"
                 >
                   {item.label}
                   <span className="h-px w-0 bg-white/70 transition-all duration-300 group-hover:w-5" />
-                </Link>
+                </button>
               )}
             </li>
           ))}
@@ -193,6 +198,12 @@ function closeEverything() {
       </aside>
 
       <PlatformDock />
+
+      <GrowingPlaceModal
+        isOpen={growingPlace !== null}
+        placeName={growingPlace ?? undefined}
+        onClose={() => setGrowingPlace(null)}
+      />
     </>
   );
 }
